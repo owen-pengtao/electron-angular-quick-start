@@ -2,6 +2,7 @@
 	<div class="container">
 		<button (click)="translateIn('en')">EN</button>
 		<button (click)="translateIn('fr')">FR</button>
+		<a [routerLink]="['/hello']">Hello</a>
 		<h2>{{ 'MULTIPLES.TITLE' | translate }}</h2>
 		<form [formGroup]="timesTableForm" (ngSubmit)="onSubmit()">
 			<div class="form-group">

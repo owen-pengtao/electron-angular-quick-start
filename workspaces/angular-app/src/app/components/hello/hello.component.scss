@@ -1,0 +1,16 @@
+#hello {
+	position: absolute;
+	left: 0;
+	top: 210px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: #ffffff;
+	font-weight: 900;
+
+	.container {
+		background-color: rgba(0, 205, 212, 0.88);
+		border-radius: 4px;
+		padding: 20px;
+	}
+}
