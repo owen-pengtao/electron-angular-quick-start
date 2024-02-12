@@ -37,4 +37,11 @@ export class ElectronIpcService {
 			this._api.send<In>(channel, input);
 		}
 	}
+
+	public removeAllListeners(channel: string): void {
+		if (this._api) {
+			console.log(`Remove all channel [${channel}]`);
+			this._api.removeAllListeners(channel);
+		}
+	}
 }

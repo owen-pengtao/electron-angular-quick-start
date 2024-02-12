@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { WindowApiConst } from 'shared-lib';
@@ -9,7 +9,7 @@ import { ElectronIpcService } from '../../services/electron-ipc.service';
 	templateUrl: './multiples.component.html',
 	styleUrls: ['./multiples.component.scss'],
 })
-export class MultiplesComponent implements OnInit {
+export class MultiplesComponent implements OnInit, OnDestroy {
 	timesTableForm = new UntypedFormGroup({
 		input: new FormControl<number>(Math.round(Math.random() * 100) % 10, {
 			nonNullable: true,
@@ -40,6 +40,10 @@ export class MultiplesComponent implements OnInit {
 
 		// Init time tables with given random value
 		this.onSubmit();
+	}
+
+	ngOnDestroy() {
+		this.electronIpc.removeAllListeners(WindowApiConst.MULTIPLES_OUTPUT);
 	}
 
 	translateIn(lang: string): void {

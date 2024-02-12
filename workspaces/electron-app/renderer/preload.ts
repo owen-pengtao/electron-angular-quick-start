@@ -22,6 +22,9 @@ contextBridge.exposeInMainWorld('api', {
 			callback(parameters[0])
 		);
 	},
+	removeAllListeners: (channel: string) => {
+		ipcRenderer.removeAllListeners(channel);
+	},
 });
 
 console.log('The preload script has been injected successfully.');
